@@ -8,17 +8,36 @@ local windfield = require "windfield"
 Scene = {}
 Scene.__index = Scene
 
+function begin_contact(a, b, coll)
+
+    if a:getUserData().on_contact then
+        a:getUserData().on_contact(b)
+    end
+
+    if b:getUserData().on_contact then
+        b:getUserData().on_contact(a)
+    end
+end
+
 function Scene.new()
     local self = setmetatable({}, Scene)
 
     self.world = windfield.newWorld(0, 0, true)
+    self.world:addCollisionClass("player", {enter = {"map"}})
+    self.world:addCollisionClass("map")
     self.mape = Map.new(self.world, "data/test_map")
 
     self.player = Player.new(self.world)
 
-    self.draw_physics = false
+    self.draw_physics = true
 
     return self
+end
+
+function Scene:on_key(key)
+    if key == "f1" then
+        self.draw_physics = not self.draw_physics
+    end
 end
 
 function Scene:update(dt)
@@ -30,7 +49,7 @@ end
 function Scene:draw()
     self.mape:draw()
     if self.draw_physics then
-        world:draw()
+        self.world:draw()
     end
     self.player:draw()
 end

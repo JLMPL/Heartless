@@ -9,6 +9,7 @@ function Map.new(phys_world, file)
     }
 
     local self = setmetatable({}, Map)
+    self.name = "map"
 
     local raw = require("data/test_map")
 
@@ -19,6 +20,8 @@ function Map.new(phys_world, file)
         local obj = objects[i]
         self.colliders[i] = phys_world:newRectangleCollider(obj.x, obj.y, obj.width, obj.height)
         self.colliders[i]:setType("static")
+        self.colliders[i]:setCollisionClass("map")
+        self.colliders[i]:setObject(self)
     end
 
     local layer = raw.layers[2]

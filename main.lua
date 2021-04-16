@@ -16,9 +16,8 @@ function love.keypressed(key)
     if key == "f4" then
         love.event.quit()
     end
-    if key == "f1" then
-        draw_physics = not draw_physics
-    end
+
+    scene:on_key(key)
 end
 
 function love.update(dt)
