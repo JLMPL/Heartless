@@ -2,34 +2,19 @@ require "camera"
 require "res"
 require "map"
 require "player"
-
-local windfield = require "windfield"
+require "collisions"
 
 Scene = {}
 Scene.__index = Scene
 
-function begin_contact(a, b, coll)
-
-    if a:getUserData().on_contact then
-        a:getUserData().on_contact(b)
-    end
-
-    if b:getUserData().on_contact then
-        b:getUserData().on_contact(a)
-    end
-end
-
 function Scene.new()
     local self = setmetatable({}, Scene)
 
-    self.world = windfield.newWorld(0, 0, true)
-    self.world:addCollisionClass("player", {enter = {"map"}})
-    self.world:addCollisionClass("map")
-    self.mape = Map.new(self.world, "data/test_map")
-
-    self.player = Player.new(self.world)
-
+    self.col_world = CollisionWorld.new()
     self.draw_physics = true
+
+    self.mape = Map.new(self.col_world, "data/test_map")
+    self.player = Player.new(self.col_world)
 
     return self
 end
@@ -41,17 +26,20 @@ function Scene:on_key(key)
 end
 
 function Scene:update(dt)
+
     self.player:update(dt)
-    self.world:update(dt)
+    self.col_world:solve()
+    self.player:late_update()
     camera:update(dt)
 end
 
 function Scene:draw()
     self.mape:draw()
-    if self.draw_physics then
-        self.world:draw()
-    end
     self.player:draw()
+
+    if self.draw_physics then
+        self.col_world:draw()
+    end
 end
 
 function Scene:draw_ui()
