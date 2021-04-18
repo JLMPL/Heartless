@@ -8,4 +8,5 @@ function res:load()
     self.heart:setWrap("repeat", "repeat")
     self.player       = love.graphics.newImage("data/run.png")
     self.pickup_heart = love.graphics.newImage("data/pickup_heart.png")
+    self.score        = love.graphics.newImage("data/score.png")
 end

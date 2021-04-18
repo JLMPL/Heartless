@@ -11,7 +11,7 @@ function Map.new(phys_world, hearts, player, file)
     local self = setmetatable({}, Map)
     self.name = "map"
 
-    local raw = require("data/test_map")
+    local raw = require(file)
 
     local pickups = raw.layers[1].objects
 

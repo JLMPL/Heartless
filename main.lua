@@ -27,8 +27,8 @@ end
 function love.draw()
     love.graphics.clear(0,0,0)
     love.graphics.push()
-    love.graphics.translate(-camera.x, -camera.y)
     love.graphics.scale(config.scale, config.scale)
+    love.graphics.translate(-camera.x, -camera.y)
     scene:draw()
     love.graphics.pop()
 
