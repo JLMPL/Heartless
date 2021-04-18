@@ -31,11 +31,11 @@ function Player:update(dt)
     rect.y = rect.y + self.acc_y
 
     if love.keyboard.isDown("left") then
-        rect.x = rect.x - 50 * dt
+        rect.x = rect.x - 60 * dt
     end
 
     if love.keyboard.isDown("right") then
-        rect.x = rect.x + 50 * dt
+        rect.x = rect.x + 60 * dt
     end
 
     if love.keyboard.isDown("up") and self.feet.is_overlapping then

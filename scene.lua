@@ -47,7 +47,7 @@ function Scene:update(dt)
         end
         self.player:late_update()
 
-        if #self.hearts == 10 then
+        if #self.hearts == 0 then
             self.is_finished = true
             love.graphics.print("Congratulations")
             camera:level_finished()
@@ -76,10 +76,11 @@ end
 
 function Scene:draw_ui()
     love.graphics.setColor(1,1,1)
-    love.graphics.draw(res.ui_hearts, 8, 8)
     love.graphics.draw(res.heart, love.graphics.newQuad(0,0,8*self.player.hearts,8,8,8), 8, 16)
 
     if camera.x == 256 then
         score_counter:draw()
+    else
+        love.graphics.draw(res.ui_hearts, 8, 8)
     end
 end
