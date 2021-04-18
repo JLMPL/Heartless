@@ -1,7 +1,7 @@
 Map = {}
 Map.__index = Map
 
-function Map.new(phys_world, file)
+function Map.new(phys_world, hearts, player, file)
     local tiles = {
         love.graphics.newQuad(0, 0, 16, 16, res.tileset:getWidth(), res.tileset:getHeight()),
         love.graphics.newQuad(16, 0, 16, 16, res.tileset:getWidth(), res.tileset:getHeight()),
@@ -13,8 +13,17 @@ function Map.new(phys_world, file)
 
     local raw = require("data/test_map")
 
+    local pickups = raw.layers[1].objects
+
+    for i = 1, #pickups do
+        local pick = pickups[i]
+        table.insert(hearts, Heart.new(phys_world, player))
+        hearts[i].rect.x = pick.x
+        hearts[i].rect.y = pick.y-16
+    end
+
     self.colliders = {}
-    local objects = raw.layers[1].objects
+    local objects = raw.layers[2].objects
 
     for i = 1, #objects do
         local obj = objects[i]
@@ -22,7 +31,7 @@ function Map.new(phys_world, file)
         self.colliders[i].static = true
     end
 
-    local layer = raw.layers[2]
+    local layer = raw.layers[3]
 
     self.width = layer.width
     self.height = layer.height

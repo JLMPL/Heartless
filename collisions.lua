@@ -105,8 +105,15 @@ function CollisionWorld:solve()
         for j = 1, #self.rectangles do
             local a = self.triggers[i]
             local b = self.rectangles[j]
+
             a.is_overlapping = aabb_overlap(a, b) and b.static
-            if a.is_overlapping then break end
+
+            if a.is_overlapping then
+                -- if a.object then
+                --     a.object:on_contact(b.object)
+                -- end
+                break
+            end
         end
     end
 end

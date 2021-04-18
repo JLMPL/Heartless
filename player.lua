@@ -6,8 +6,11 @@ function Player.new(phys_world)
     self.name = "player"
 
     self.collider = phys_world:add_rect(16, 16, 10, 16)
+    self.collider.object = self
     self.feet = phys_world:add_trigger(16,16,8,2)
+    self.feet.ignore_dynamic = true
     self.head = phys_world:add_trigger(0,0,8,2)
+    self.hearts = 0
     self.acc_y = 0
 
     return self
@@ -56,5 +59,7 @@ end
 
 function Player:on_contact(other)
     if not other then return end
-    print(other.name)
+
+    if other.name ~= "player" then
+    end
 end
