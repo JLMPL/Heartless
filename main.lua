@@ -1,6 +1,8 @@
 require "config"
 require "scene"
 
+current_level = 1
+
 local scene = nil
 
 function love.load()
@@ -9,7 +11,7 @@ function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
 
     res:load()
-    scene = Scene.new()
+    scene = Scene.new(current_level)
 end
 
 function love.keypressed(key)
@@ -21,6 +23,11 @@ function love.keypressed(key)
 end
 
 function love.update(dt)
+    if scene.is_next_level then
+        current_level = current_level + 1
+        scene = Scene.new(current_level)
+    end
+
     scene:update(dt)
 end
 

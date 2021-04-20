@@ -9,7 +9,13 @@ require "score_counter"
 Scene = {}
 Scene.__index = Scene
 
-function Scene.new()
+levels = {
+    "data/test_map",
+    "data/test_map2",
+    "data/test_map"
+}
+
+function Scene.new(level)
     local self = setmetatable({}, Scene)
 
     self.hearts = {}
@@ -17,10 +23,12 @@ function Scene.new()
     self.draw_physics = true
 
     self.player = Player.new(self.col_world)
-    self.mape = Map.new(self.col_world, self.hearts, self.player, "data/test_map")
+    self.mape = Map.new(self.col_world, self.hearts, self.player, levels[level])
     self.max_hearts = #self.hearts
 
     self.is_finished = false
+    self.is_next_level = false
+    camera:reset()
 
     return self
 end
@@ -49,12 +57,11 @@ function Scene:update(dt)
 
         if #self.hearts == 0 then
             self.is_finished = true
-            love.graphics.print("Congratulations")
             camera:level_finished()
         end
     else
         if camera.x == 256 then
-            score_counter:count(self.player)
+            score_counter:count(self.player, self)
             score_counter:update(dt)
         end
     end

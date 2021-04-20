@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="16" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="51">
+ <editorsettings>
+  <export target="../data/test_map2.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" source="Basic.json"/>
+ <objectgroup id="3" name="Pickups">
+  <object id="37" x="32" y="80">
+   <point/>
+  </object>
+  <object id="38" x="48" y="80">
+   <point/>
+  </object>
+  <object id="39" x="64" y="96">
+   <point/>
+  </object>
+  <object id="40" x="80" y="96">
+   <point/>
+  </object>
+  <object id="41" x="112" y="64">
+   <point/>
+  </object>
+  <object id="42" x="128" y="64">
+   <point/>
+  </object>
+  <object id="43" x="160" y="96">
+   <point/>
+  </object>
+  <object id="44" x="176" y="96">
+   <point/>
+  </object>
+  <object id="45" x="192" y="80">
+   <point/>
+  </object>
+  <object id="46" x="208" y="80">
+   <point/>
+  </object>
+  <object id="47" x="80" y="160">
+   <point/>
+  </object>
+  <object id="48" x="160" y="160">
+   <point/>
+  </object>
+  <object id="49" x="112" y="192">
+   <point/>
+  </object>
+  <object id="50" x="128" y="192">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="2" name="Colliders">
+  <object id="1" x="0" y="208" width="256" height="16"/>
+  <object id="2" x="112" y="128" width="32" height="16"/>
+  <object id="3" x="80" y="160" width="16" height="16"/>
+  <object id="4" x="96" y="144" width="16" height="16"/>
+  <object id="7" x="64" y="96" width="32" height="16"/>
+  <object id="8" x="160" y="96" width="32" height="16"/>
+  <object id="9" x="112" y="128" width="32" height="16"/>
+  <object id="10" x="32" y="80" width="32" height="16"/>
+  <object id="11" x="192" y="80" width="32" height="16"/>
+  <object id="12" x="-16" y="0" width="16" height="224"/>
+  <object id="13" x="256" y="0" width="16" height="224"/>
+  <object id="14" x="-16" y="-16" width="288" height="16"/>
+  <object id="33" x="64" y="176" width="16" height="16"/>
+  <object id="34" x="144" y="144" width="16" height="16"/>
+  <object id="35" x="160" y="160" width="16" height="16"/>
+  <object id="36" x="176" y="176" width="16" height="16"/>
+ </objectgroup>
+ <layer id="1" name="Base" width="16" height="14">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,3,5,0,0,0,0,0,0,0,0,3,5,0,0,
+0,0,0,0,3,5,0,0,0,0,3,5,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,3,5,0,0,0,0,0,0,0,
+0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,
+0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,
+0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
+</data>
+ </layer>
+</map>

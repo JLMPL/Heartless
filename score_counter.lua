@@ -2,7 +2,8 @@ require "res"
 
 score_counter = {
     player = nil,
-    score = 0
+    score = 0,
+    scene = nil
 }
 
 num_quads = {
@@ -18,24 +19,32 @@ num_quads = {
     [9] = love.graphics.newQuad(9*8,0,8,8, 80, 8)
 }
 
-function score_counter:count(player)
+function score_counter:count(player, scene)
     if self.player == nil then
         self.player = player
         self.score = 0
         self.timer = 0
+        self.scene = scene
     end
 end
 
 function score_counter:update(dt)
     self.timer = self.timer + dt
 
-    if self.timer > 0.25 and self.player.hearts > 0 then
+    if self.timer > 0.1 and self.player.hearts > 0 then
         self.player.hearts = math.max(0, self.player.hearts - 1)
         self.score = self.score + 1
         self.timer = 0
     end
 
     if self.player.hearts == 0 then
+        if love.keyboard.isDown("return") then
+            self.scene.is_next_level = true
+            self.player = nil
+            self.score = 0
+            self.timer = 0
+            return
+        end
     end
 end
 
