@@ -4,7 +4,7 @@ local anim8 = require "anim8"
 Heart = {}
 Heart.__index = Heart
 
-function Heart.new(phys_world, player)
+function Heart.new(player)
     local self = setmetatable({}, Heart)
 
     self.rect = CollisionRect.new(16,16,16,16)

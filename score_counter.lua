@@ -2,8 +2,9 @@ require "res"
 
 score_counter = {
     player = nil,
+    scene = nil,
     score = 0,
-    scene = nil
+    total = 0
 }
 
 num_quads = {
@@ -22,7 +23,7 @@ num_quads = {
 function score_counter:count(player, scene)
     if self.player == nil then
         self.player = player
-        self.score = 0
+        -- self.score = 0
         self.timer = 0
         self.scene = scene
     end
@@ -39,9 +40,10 @@ function score_counter:update(dt)
 
     if self.player.hearts == 0 then
         if love.keyboard.isDown("return") then
+            -- self.total = self.total + self.score
             self.scene.is_next_level = true
             self.player = nil
-            self.score = 0
+            -- self.score = 0
             self.timer = 0
             return
         end
@@ -52,14 +54,16 @@ function score_counter:draw()
     love.graphics.draw(res.score, 10*8, 12*8)
 
     if self.player and self.player.hearts == 0 then
-        love.graphics.draw(res.press_start, 10*8, 15*8)
+        love.graphics.setColor(1,1,1, math.floor((self.timer * 2) % 2))
+        love.graphics.draw(res.press_start, 10*8, 16*8)
+        love.graphics.setColor(1,1,1,1)
     end
 
     if self.score > 9 then
-        love.graphics.draw(res.numbers, num_quads[math.floor(self.score / 10 % 10)], 17*8, 13*8)
+        love.graphics.draw(res.numbers, num_quads[math.floor(self.score / 10 % 10)], 17*8, 14*8)
     end
 
-    love.graphics.draw(res.numbers, num_quads[math.floor(self.score % 10)], 18*8, 13*8)
-    love.graphics.draw(res.numbers, num_quads[0], 19*8, 13*8)
-    love.graphics.draw(res.numbers, num_quads[0], 20*8, 13*8)
+    love.graphics.draw(res.numbers, num_quads[math.floor(self.score % 10)], 18*8, 14*8)
+    love.graphics.draw(res.numbers, num_quads[0], 19*8, 14*8)
+    love.graphics.draw(res.numbers, num_quads[0], 20*8, 14*8)
 end

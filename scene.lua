@@ -5,6 +5,7 @@ require "player"
 require "collisions"
 require "heart"
 require "score_counter"
+require "spikes"
 
 Scene = {}
 Scene.__index = Scene
@@ -19,11 +20,12 @@ function Scene.new(level)
     local self = setmetatable({}, Scene)
 
     self.hearts = {}
+    self.spikes = {}
     self.col_world = CollisionWorld.new()
-    self.draw_physics = true
+    self.draw_physics = false
 
     self.player = Player.new(self.col_world)
-    self.mape = Map.new(self.col_world, self.hearts, self.player, levels[level])
+    self.mape = Map.new(self, levels[level])
     self.max_hearts = #self.hearts
 
     self.is_finished = false
@@ -39,26 +41,41 @@ function Scene:on_key(key)
     end
 end
 
+function Scene:remove_picked_hearts()
+    for i = #self.hearts, 1, -1 do
+        if self.hearts[i]:is_picked() then
+            table.remove(self.hearts, i)
+        end
+    end
+end
+
+function Scene:update_entities(dt)
+    self.player:update(dt)
+    self.col_world:solve()
+
+    for i=1, #self.hearts do
+        self.hearts[i]:update(dt)
+    end
+
+    for i=1, #self.spikes do
+        self.spikes[i]:update(dt)
+    end
+
+    self.player:late_update()
+end
+
+function Scene:check_finish()
+    if #self.hearts == 0 then
+        self.is_finished = true
+        camera:level_finished()
+    end
+end
+
 function Scene:update(dt)
     if not self.is_finished then
-        for i = #self.hearts, 1, -1 do
-            if self.hearts[i]:is_picked() then
-                table.remove(self.hearts, i)
-            end
-        end
-
-        self.player:update(dt)
-        self.col_world:solve()
-
-        for i=1, #self.hearts do
-            self.hearts[i]:update(dt)
-        end
-        self.player:late_update()
-
-        if #self.hearts == 0 then
-            self.is_finished = true
-            camera:level_finished()
-        end
+        self:remove_picked_hearts()
+        self:update_entities(dt)
+        self:check_finish()
     else
         if camera.x == 256 then
             score_counter:count(self.player, self)
@@ -71,9 +88,15 @@ end
 
 function Scene:draw()
     self.mape:draw()
+
     for i=1, #self.hearts do
         self.hearts[i]:draw()
     end
+
+    for i=1, #self.spikes do
+        self.spikes[i]:draw()
+    end
+
     self.player:draw()
 
     if self.draw_physics then

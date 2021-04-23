@@ -11,4 +11,5 @@ function res:load()
     self.score        = love.graphics.newImage("data/score.png")
     self.press_start  = love.graphics.newImage("data/press_start2.png")
     self.numbers      = love.graphics.newImage("data/numbers.png")
+    self.spikes       = love.graphics.newImage("data/spikes.png")
 end

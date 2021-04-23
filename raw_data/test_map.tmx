@@ -1,56 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="16" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="33">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="16" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="34">
  <editorsettings>
   <export target="../data/test_map.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" source="Basic.json"/>
  <objectgroup id="3" name="Pickups">
-  <object id="17" x="112" y="64">
+  <object id="17" name="heart" x="112" y="64">
    <point/>
   </object>
-  <object id="18" x="128" y="64">
+  <object id="18" name="heart" x="128" y="64">
    <point/>
   </object>
-  <object id="19" x="48" y="112">
+  <object id="19" name="heart" x="48" y="112">
    <point/>
   </object>
-  <object id="20" x="192" y="112">
+  <object id="20" name="heart" x="192" y="112">
    <point/>
   </object>
-  <object id="21" x="208" y="64">
+  <object id="21" name="heart" x="208" y="64">
    <point/>
   </object>
-  <object id="22" x="224" y="64">
+  <object id="22" name="heart" x="224" y="64">
    <point/>
   </object>
-  <object id="23" x="32" y="64">
+  <object id="23" name="heart" x="32" y="64">
    <point/>
   </object>
-  <object id="24" x="16" y="64">
+  <object id="24" name="heart" x="16" y="64">
    <point/>
   </object>
-  <object id="25" x="0" y="160">
+  <object id="25" name="heart" x="0" y="160">
    <point/>
   </object>
-  <object id="26" x="240" y="160">
+  <object id="26" name="heart" x="240" y="160">
    <point/>
   </object>
-  <object id="27" x="80" y="160">
+  <object id="27" name="heart" x="80" y="160">
    <point/>
   </object>
-  <object id="28" x="96" y="160">
+  <object id="28" name="heart" x="96" y="160">
    <point/>
   </object>
-  <object id="29" x="112" y="160">
+  <object id="29" name="heart" x="112" y="160">
    <point/>
   </object>
-  <object id="30" x="128" y="160">
+  <object id="30" name="heart" x="128" y="160">
    <point/>
   </object>
-  <object id="31" x="144" y="160">
+  <object id="31" name="heart" x="144" y="160">
    <point/>
   </object>
-  <object id="32" x="160" y="160">
+  <object id="32" name="heart" x="160" y="160">
+   <point/>
+  </object>
+  <object id="33" name="spikes" x="112" y="208">
    <point/>
   </object>
  </objectgroup>

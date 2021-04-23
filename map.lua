@@ -1,7 +1,7 @@
 Map = {}
 Map.__index = Map
 
-function Map.new(phys_world, hearts, player, file)
+function Map.new(scene, file)
     local tiles = {
         love.graphics.newQuad(0, 0, 16, 16, res.tileset:getWidth(), res.tileset:getHeight()),
         love.graphics.newQuad(16, 0, 16, 16, res.tileset:getWidth(), res.tileset:getHeight()),
@@ -15,11 +15,24 @@ function Map.new(phys_world, hearts, player, file)
 
     local pickups = raw.layers[1].objects
 
+    local player = scene.player
+    local hearts = scene.hearts
+    local spikes = scene.spikes
+
     for i = 1, #pickups do
         local pick = pickups[i]
-        table.insert(hearts, Heart.new(phys_world, player))
-        hearts[i].rect.x = pick.x
-        hearts[i].rect.y = pick.y-16
+
+        if pick.name == "heart" then
+            local ind = #hearts + 1
+            hearts[ind] = Heart.new(player)
+            hearts[ind].rect.x = pick.x
+            hearts[ind].rect.y = pick.y-16
+        elseif pick.name == "spikes" then
+            local ind = #spikes + 1
+            spikes[ind] = Spikes.new(player)
+            spikes[ind].rect.x = pick.x
+            spikes[ind].rect.y = pick.y-16
+        end
     end
 
     self.colliders = {}
@@ -27,7 +40,7 @@ function Map.new(phys_world, hearts, player, file)
 
     for i = 1, #objects do
         local obj = objects[i]
-        self.colliders[i] = phys_world:add_rect(obj.x, obj.y, obj.width, obj.height)
+        self.colliders[i] = scene.col_world:add_rect(obj.x, obj.y, obj.width, obj.height)
         self.colliders[i].static = true
     end
 

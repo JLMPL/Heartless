@@ -57,9 +57,7 @@ function Player:draw()
     love.graphics.draw(res.player, rect.x-4, rect.y-8)
 end
 
-function Player:on_contact(other)
-    if not other then return end
-
-    if other.name ~= "player" then
-    end
+function Player:get_hit()
+    self.collider.y = self.collider.y - 5
+    self.hearts = math.max(0, self.hearts - 1)
 end

@@ -9,7 +9,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 51,
+  nextobjectid = 53,
   properties = {},
   tilesets = {
     {
@@ -34,7 +34,7 @@ return {
       objects = {
         {
           id = 37,
-          name = "",
+          name = "heart",
           type = "",
           shape = "point",
           x = 32,
@@ -47,7 +47,7 @@ return {
         },
         {
           id = 38,
-          name = "",
+          name = "heart",
           type = "",
           shape = "point",
           x = 48,
@@ -60,7 +60,7 @@ return {
         },
         {
           id = 39,
-          name = "",
+          name = "heart",
           type = "",
           shape = "point",
           x = 64,
@@ -73,7 +73,7 @@ return {
         },
         {
           id = 40,
-          name = "",
+          name = "heart",
           type = "",
           shape = "point",
           x = 80,
@@ -86,7 +86,7 @@ return {
         },
         {
           id = 41,
-          name = "",
+          name = "heart",
           type = "",
           shape = "point",
           x = 112,
@@ -99,7 +99,7 @@ return {
         },
         {
           id = 42,
-          name = "",
+          name = "heart",
           type = "",
           shape = "point",
           x = 128,
@@ -112,7 +112,7 @@ return {
         },
         {
           id = 43,
-          name = "",
+          name = "heart",
           type = "",
           shape = "point",
           x = 160,
@@ -125,7 +125,7 @@ return {
         },
         {
           id = 44,
-          name = "",
+          name = "heart",
           type = "",
           shape = "point",
           x = 176,
@@ -138,7 +138,7 @@ return {
         },
         {
           id = 45,
-          name = "",
+          name = "heart",
           type = "",
           shape = "point",
           x = 192,
@@ -151,7 +151,7 @@ return {
         },
         {
           id = 46,
-          name = "",
+          name = "heart",
           type = "",
           shape = "point",
           x = 208,
@@ -164,7 +164,7 @@ return {
         },
         {
           id = 47,
-          name = "",
+          name = "heart",
           type = "",
           shape = "point",
           x = 80,
@@ -177,7 +177,7 @@ return {
         },
         {
           id = 48,
-          name = "",
+          name = "heart",
           type = "",
           shape = "point",
           x = 160,
@@ -190,7 +190,7 @@ return {
         },
         {
           id = 49,
-          name = "",
+          name = "heart",
           type = "",
           shape = "point",
           x = 112,
@@ -203,11 +203,37 @@ return {
         },
         {
           id = 50,
-          name = "",
+          name = "heart",
           type = "",
           shape = "point",
           x = 128,
           y = 192,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 51,
+          name = "spikes",
+          type = "",
+          shape = "point",
+          x = 64,
+          y = 208,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 52,
+          name = "spikes",
+          type = "",
+          shape = "point",
+          x = 176,
+          y = 208,
           width = 0,
           height = 0,
           rotation = 0,
