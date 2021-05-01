@@ -58,6 +58,10 @@ function Player:draw()
 end
 
 function Player:get_hit()
+    if self.hearts == 0 then
+        print("Dead")
+    end
+
     self.collider.y = self.collider.y - 5
     self.hearts = math.max(0, self.hearts - 1)
 end

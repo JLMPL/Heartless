@@ -7,23 +7,17 @@ score_counter = {
     total = 0
 }
 
-num_quads = {
-    [0] = love.graphics.newQuad(0,0,8,8, 80, 8),
-    [1] = love.graphics.newQuad(1*8,0,8,8, 80, 8),
-    [2] = love.graphics.newQuad(2*8,0,8,8, 80, 8),
-    [3] = love.graphics.newQuad(3*8,0,8,8, 80, 8),
-    [4] = love.graphics.newQuad(4*8,0,8,8, 80, 8),
-    [5] = love.graphics.newQuad(5*8,0,8,8, 80, 8),
-    [6] = love.graphics.newQuad(6*8,0,8,8, 80, 8),
-    [7] = love.graphics.newQuad(7*8,0,8,8, 80, 8),
-    [8] = love.graphics.newQuad(8*8,0,8,8, 80, 8),
-    [9] = love.graphics.newQuad(9*8,0,8,8, 80, 8)
-}
+num_quads = {}
+
+function score_counter:init()
+    for i = 0, 9 do
+        num_quads[i] = love.graphics.newQuad(i*8, 0, 8,8, 80, 8)
+    end
+end
 
 function score_counter:count(player, scene)
     if self.player == nil then
         self.player = player
-        -- self.score = 0
         self.timer = 0
         self.scene = scene
     end
@@ -40,10 +34,8 @@ function score_counter:update(dt)
 
     if self.player.hearts == 0 then
         if love.keyboard.isDown("return") then
-            -- self.total = self.total + self.score
             self.scene.is_next_level = true
             self.player = nil
-            -- self.score = 0
             self.timer = 0
             return
         end
@@ -52,6 +44,7 @@ end
 
 function score_counter:draw()
     love.graphics.draw(res.score, 10*8, 12*8)
+    love.graphics.draw(res.total, 10*8, 14*8)
 
     if self.player and self.player.hearts == 0 then
         love.graphics.setColor(1,1,1, math.floor((self.timer * 2) % 2))

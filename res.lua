@@ -12,4 +12,7 @@ function res:load()
     self.press_start  = love.graphics.newImage("data/press_start2.png")
     self.numbers      = love.graphics.newImage("data/numbers.png")
     self.spikes       = love.graphics.newImage("data/spikes.png")
+    self.total        = love.graphics.newImage("data/total.png")
+    self.water        = love.graphics.newImage("data/water.png")
+    self.bird         = love.graphics.newImage("data/birb.png")
 end

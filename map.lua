@@ -18,6 +18,7 @@ function Map.new(scene, file)
     local player = scene.player
     local hearts = scene.hearts
     local spikes = scene.spikes
+    local waters = scene.waters
 
     for i = 1, #pickups do
         local pick = pickups[i]
@@ -32,6 +33,12 @@ function Map.new(scene, file)
             spikes[ind] = Spikes.new(player)
             spikes[ind].rect.x = pick.x
             spikes[ind].rect.y = pick.y-16
+        elseif pick.name == "water" then
+            local ind = #waters + 1
+            waters[ind] = Water.new(player, pick.x, pick.y)
+        elseif pick.name == "bird" then
+            local ind = #scene.birds + 1
+            scene.birds[ind] = Bird.new(player, pick.x, pick.y)
         end
     end
 

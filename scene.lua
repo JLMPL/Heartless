@@ -6,6 +6,8 @@ require "collisions"
 require "heart"
 require "score_counter"
 require "spikes"
+require "water"
+require "bird"
 
 Scene = {}
 Scene.__index = Scene
@@ -16,20 +18,39 @@ levels = {
     "data/test_map"
 }
 
+function Scene:level_1()
+    self.mape = Map.new(self, "data/test_map")
+    self.next_level = 2
+end
+
+function Scene:level_2()
+    self.mape = Map.new(self, "data/test_map2")
+    self.next_level = 3
+end
+
+function Scene:level_3()
+    self.mape = Map.new(self, "data/test_map")
+    self.next_level = 2
+end
+
 function Scene.new(level)
     local self = setmetatable({}, Scene)
 
     self.hearts = {}
     self.spikes = {}
+    self.waters = {}
+    self.birds = {}
     self.col_world = CollisionWorld.new()
     self.draw_physics = false
 
     self.player = Player.new(self.col_world)
     self.mape = Map.new(self, levels[level])
-    self.max_hearts = #self.hearts
 
     self.is_finished = false
     self.is_next_level = false
+
+    self.next_level = level + 1
+
     camera:reset()
 
     return self
@@ -59,6 +80,10 @@ function Scene:update_entities(dt)
 
     for i=1, #self.spikes do
         self.spikes[i]:update(dt)
+    end
+
+    for i=1, #self.waters do
+        self.waters[i]:update(dt)
     end
 
     self.player:late_update()
@@ -93,11 +118,15 @@ function Scene:draw()
         self.hearts[i]:draw()
     end
 
+    self.player:draw()
+
     for i=1, #self.spikes do
         self.spikes[i]:draw()
     end
 
-    self.player:draw()
+    for i=1, #self.waters do
+        self.waters[i]:draw()
+    end
 
     if self.draw_physics then
         self.col_world:draw()

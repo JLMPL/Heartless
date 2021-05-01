@@ -1,7 +1,7 @@
 require "config"
 require "scene"
-
-current_level = 1
+require "splash_screen"
+require "end_screen"
 
 local scene = nil
 
@@ -11,7 +11,9 @@ function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
 
     res:load()
-    scene = Scene.new(current_level)
+    score_counter:init()
+    -- scene = Scene.new(1)
+    scene = SplashScreen.new()
 end
 
 function love.keypressed(key)
@@ -24,8 +26,15 @@ end
 
 function love.update(dt)
     if scene.is_next_level then
-        current_level = current_level + 1
-        scene = Scene.new(current_level)
+        local next_level = scene.next_level
+
+        if next_level == #levels + 1 then
+            scene = EndScreen.new()
+        elseif next_level == -1 then
+            scene = SplashScreen.new()
+        else
+            scene = Scene.new(next_level)
+        end
     end
 
     scene:update(dt)

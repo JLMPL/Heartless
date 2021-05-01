@@ -9,7 +9,7 @@ function Spikes.new(player)
     local self = setmetatable({}, Spikes)
 
     local grid = anim8.newGrid(16, 16, res.spikes:getWidth(), res.spikes:getHeight())
-    self.anim = anim8.newAnimation(grid('1-2',1), 1)
+    self.anim = anim8.newAnimation(grid('1-2',1), 0.6)
 
     self.rect = CollisionRect.new(32,48,16,16)
     self.prev_frame = 0

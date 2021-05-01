@@ -9,7 +9,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 53,
+  nextobjectid = 54,
   properties = {},
   tilesets = {
     {
@@ -234,6 +234,19 @@ return {
           shape = "point",
           x = 176,
           y = 208,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 53,
+          name = "bird",
+          type = "",
+          shape = "point",
+          x = 0,
+          y = 48,
           width = 0,
           height = 0,
           rotation = 0,

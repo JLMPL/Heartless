@@ -9,7 +9,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 4,
-  nextobjectid = 34,
+  nextobjectid = 37,
   properties = {},
   tilesets = {
     {
@@ -242,11 +242,24 @@ return {
         },
         {
           id = 33,
-          name = "spikes",
+          name = "water",
           type = "",
           shape = "point",
           x = 112,
           y = 208,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 36,
+          name = "bird",
+          type = "",
+          shape = "point",
+          x = 0,
+          y = 96,
           width = 0,
           height = 0,
           rotation = 0,
@@ -275,7 +288,7 @@ return {
           shape = "rectangle",
           x = 0,
           y = 208,
-          width = 256,
+          width = 112,
           height = 16,
           rotation = 0,
           visible = true,
@@ -449,6 +462,32 @@ return {
           rotation = 0,
           visible = true,
           properties = {}
+        },
+        {
+          id = 34,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 208,
+          width = 128,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 35,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 224,
+          width = 48,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -482,7 +521,7 @@ return {
         11, 0, 0, 0, 3, 4, 4, 4, 4, 4, 4, 5, 0, 0, 0, 9,
         8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6,
         7, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 7,
-        12, 7, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 7, 12
+        12, 7, 10, 10, 10, 10, 10, 0, 10, 10, 10, 10, 10, 10, 7, 12
       }
     }
   }
