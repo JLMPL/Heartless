@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/JLMPL/Heartless/master/screenshots/banner.png?token=AGEEZJZL7MRCU5PNXU7SN7DASDXL4"/>
+  <img src="/screenshots/banner.png"/>
 </p>
 
 A simple LÖVE2D platformer.
