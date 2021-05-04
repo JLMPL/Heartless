@@ -3,7 +3,7 @@
   <img src="/screenshots/banner.png"/>
 </p>
 
-A simple LÖVE2D platformer.
+A simple NES-Styled LÖVE2D platformer.
 
 I used this little project to familiarize myself with Lua and LÖVE2D. <br>
 It uses some copyrighted assets from [The Spriters Resource](https://www.spriters-resource.com/). <br>
