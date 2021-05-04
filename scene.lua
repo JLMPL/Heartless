@@ -15,23 +15,9 @@ Scene.__index = Scene
 levels = {
     "data/test_map",
     "data/test_map2",
-    "data/test_map"
+    "data/test_map3",
+    "data/test_map4"
 }
-
-function Scene:level_1()
-    self.mape = Map.new(self, "data/test_map")
-    self.next_level = 2
-end
-
-function Scene:level_2()
-    self.mape = Map.new(self, "data/test_map2")
-    self.next_level = 3
-end
-
-function Scene:level_3()
-    self.mape = Map.new(self, "data/test_map")
-    self.next_level = 2
-end
 
 function Scene.new(level)
     local self = setmetatable({}, Scene)
@@ -86,6 +72,10 @@ function Scene:update_entities(dt)
         self.waters[i]:update(dt)
     end
 
+    for i=1, #self.birds do
+        self.birds[i]:update(dt)
+    end
+
     self.player:late_update()
 end
 
@@ -126,6 +116,10 @@ function Scene:draw()
 
     for i=1, #self.waters do
         self.waters[i]:draw()
+    end
+
+    for i=1, #self.birds do
+        self.birds[i]:draw()
     end
 
     if self.draw_physics then

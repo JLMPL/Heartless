@@ -239,19 +239,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {}
-        },
-        {
-          id = 53,
-          name = "bird",
-          type = "",
-          shape = "point",
-          x = 0,
-          y = 48,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {}
         }
       }
     },

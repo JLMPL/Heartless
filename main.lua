@@ -12,7 +12,6 @@ function love.load()
 
     res:load()
     score_counter:init()
-    -- scene = Scene.new(1)
     scene = SplashScreen.new()
 end
 
@@ -31,6 +30,7 @@ function love.update(dt)
         if next_level == #levels + 1 then
             scene = EndScreen.new()
         elseif next_level == -1 then
+            score_counter.score = 0
             scene = SplashScreen.new()
         else
             scene = Scene.new(next_level)

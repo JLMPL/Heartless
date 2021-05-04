@@ -53,9 +53,6 @@
   <object id="52" name="spikes" x="176" y="208">
    <point/>
   </object>
-  <object id="53" name="bird" x="0" y="48">
-   <point/>
-  </object>
  </objectgroup>
  <objectgroup id="2" name="Colliders">
   <object id="1" x="0" y="208" width="256" height="16"/>

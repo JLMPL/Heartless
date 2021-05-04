@@ -28,6 +28,8 @@ end
 function EndScreen:draw_ui()
     love.graphics.print("Goodbye World")
 
+    love.graphics.draw(res.the_end)
+
     love.graphics.setColor(1,1,1, math.floor((self.timer * 2) % 2))
     love.graphics.draw(res.press_start, 10*8, 16*8)
     love.graphics.setColor(1,1,1,1)

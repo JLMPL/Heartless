@@ -15,4 +15,6 @@ function res:load()
     self.total        = love.graphics.newImage("data/total.png")
     self.water        = love.graphics.newImage("data/water.png")
     self.bird         = love.graphics.newImage("data/birb.png")
+    self.splash       = love.graphics.newImage("data/splash.png")
+    self.the_end      = love.graphics.newImage("data/the_end.png")
 end
