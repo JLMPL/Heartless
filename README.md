@@ -14,19 +14,19 @@ Feel free to dismantle and play with it.
 ## Screenshots
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/JLMPL/Heartless/master/screenshots/screen0.png?token=AGEEZJZUKEASOZ7VGWQFUATASDYVU"/>
+  <img src="/screenshots/screen0.png"/>
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/JLMPL/Heartless/master/screenshots/screen1.png?token=AGEEZJ7J5ZBFDXG4GNJKYUTASDY2I"/>
+  <img src="/screenshots/screen1.png"/>
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/JLMPL/Heartless/master/screenshots/screen2.png?token=AGEEZJ53CDTI7NNWY2FXWIDASDY4I"/>
+  <img src="/screenshots/screen2.png"/>
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/JLMPL/Heartless/master/screenshots/screen3.png?token=AGEEZJ67VIGLN3E6GTYFXTDASDY5W"/>
+  <img src="/screenshots/screen3.png"/>
 </p>
 
 ## License
