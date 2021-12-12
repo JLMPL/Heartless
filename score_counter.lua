@@ -33,7 +33,11 @@ function score_counter:update(dt)
     end
 
     if self.player.hearts == 0 then
-        if love.keyboard.isDown("return") then
+
+        joysticks = love.joystick.getJoysticks()
+        joystick = joysticks[1]
+
+        if joystick:isGamepadDown("a") then
             self.scene.is_next_level = true
             self.player = nil
             self.timer = 0

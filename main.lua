@@ -23,6 +23,10 @@ function love.keypressed(key)
     scene:on_key(key)
 end
 
+function love.gamepadpressed(joy, button)
+    scene:on_button(button)
+end
+
 function love.update(dt)
     if scene.is_next_level then
         local next_level = scene.next_level

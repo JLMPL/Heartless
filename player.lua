@@ -30,15 +30,19 @@ function Player:update(dt)
 
     rect.y = rect.y + self.acc_y
 
-    if love.keyboard.isDown("left") then
+    joysticks = love.joystick.getJoysticks()
+    joystick = joysticks[1]
+
+
+    if joystick:isGamepadDown("dpleft") or joystick:getAxis(1) < -0.1 then
         rect.x = rect.x - 60 * dt
     end
 
-    if love.keyboard.isDown("right") then
+    if joystick:isGamepadDown("dpright") or joystick:getAxis(1) > 0.1 then
         rect.x = rect.x + 60 * dt
     end
 
-    if love.keyboard.isDown("up") and self.feet.is_overlapping then
+    if (joystick:isGamepadDown("a") or joystick:isGamepadDown("rightshoulder")) and self.feet.is_overlapping then
         self.acc_y = -3
         self.feet.is_overlapping = false
     end

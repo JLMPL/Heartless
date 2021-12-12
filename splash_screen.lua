@@ -18,6 +18,12 @@ function SplashScreen:on_key(key)
     end
 end
 
+function SplashScreen:on_button(button)
+    if button == "a" then
+        self.is_next_level = true
+    end
+end
+
 function SplashScreen:update(dt)
     self.timer = self.timer + dt
 end

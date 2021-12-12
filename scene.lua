@@ -48,6 +48,12 @@ function Scene:on_key(key)
     end
 end
 
+function Scene:on_button(button)
+    if button == "leftshoulder" then
+        self.draw_physics = not self.draw_physics
+    end
+end
+
 function Scene:remove_picked_hearts()
     for i = #self.hearts, 1, -1 do
         if self.hearts[i]:is_picked() then
